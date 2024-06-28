@@ -1,5 +1,8 @@
 {{ define "main" }}
 <main>
+	{{ if (findRE "<pre" .Content 1) }}
+    	<script src="/js/code.js" defer></script>
+	{{ end }}
 	<article>
 		<div class="title">
 			<h1 class="title">{{ .Title }}</h1>
