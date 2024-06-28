@@ -11,4 +11,9 @@
 		<script src="{{ .Site.BaseURL }}js/themetoggle.js"></script>
 		{{ end }}
 	</nav>
+	<div class="site-description">
+		{{- if isset .Site.Params "subtitle" -}}
+		<p>{{ .Site.Params.Subtitle | transform.Markdownify }}</p>
+		{{- end -}}
+	</div>
 </header>

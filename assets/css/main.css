@@ -148,6 +148,7 @@ header {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	margin: 1em 0;
+	margin-bottom: 0;
 	line-height: 2.5em;
 }
 
@@ -269,8 +270,20 @@ article .title {
 
 .site-description {
 	display: flex;
-	justify-content: space-between;
 }
+
+.site-description p {
+	margin: 0;
+}
+
+.site-description::before {
+	line-height: 22.5px;
+	content: "❯";
+	padding-right: 5px;
+	text-align: center;
+	color: var(--maincolor);
+}
+
 
 .tags li::before {
 	content: "🏷 ";

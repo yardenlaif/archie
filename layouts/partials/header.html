@@ -36,8 +36,8 @@
         <link href="{{ $fontstyle.Permalink }}" rel="stylesheet">
 	{{ end }}
 
-	{{ $style := resources.Get "css/main.css" | fingerprint }}
-	<link rel="stylesheet" type="text/css" media="screen" href="{{ $style.Permalink }}" />
+	{{ $styles := resources.Get "css/main.css" | minify }}
+<link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen">
 
 	{{- if or (eq .Site.Params.mode "auto") (eq .Site.Params.mode "dark") (eq .Site.Params.mode "toggle") -}}
 		{{ $darkstyle := resources.Get "css/dark.css" | fingerprint }}
