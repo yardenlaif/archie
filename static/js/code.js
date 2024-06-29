@@ -1,19 +1,16 @@
 if (navigator.clipboard) {
 	// use a class selector if available
-	let blocks = document.querySelectorAll("pre");
+	let blocks = document.querySelectorAll(".highlight");
 
 	blocks.forEach((block) => {
-		const lang = block.childNodes[0].getAttribute('data-lang');
+		const code = block.querySelector('[data-lang]');
+		const lang = code.getAttribute('data-lang');
 		if (lang == "fallback") {
 			return
 		}
 
-		var parent = block.parentNode;
-		parent.removeChild(block);
-
 		let div = document.createElement('div');
 		div.className = "codeblock";
-		parent.appendChild(div);
 
 		let header = document.createElement("div");
 		header.className = 'before-code';
@@ -39,14 +36,12 @@ if (navigator.clipboard) {
 		img.src = "/copy.svg";
 		button.appendChild(img);
 
-		block.className = "code";
+		block.childNodes[0].className = "code";
+		block.insertBefore(div, block.childNodes[0]);
 
 		button.addEventListener("click", async () => {
 			await copyCode(block, img);
 		});
-
-
-		div.appendChild(block);
 	})
 }
 

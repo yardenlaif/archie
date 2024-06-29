@@ -53,10 +53,8 @@ a {
 }
 
 a:hover {
-	background-color: var(--maincolor);
-	padding: 3px;
+	background-color: var(--hovercolor);
 	font-weight: bold;
-	color: #fff;
 }
 
 ul {
@@ -291,13 +289,18 @@ article .title {
 	content: "🏷 ";
 }
 
+.tags {
+	margin-top: 0;
+}
+
 .tags a {
 	border-bottom: 3px solid var(--maincolor);
 }
 
 .tags a:hover {
-	color: white;
-	background-color: var(--hovercolor);
+	color: var(--hovercolor);
+	background-color: white;
+	padding: 0;
 }
 
 svg {
