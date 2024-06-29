@@ -112,12 +112,14 @@ code {
 	background-color: #f1f1f1;
 	padding: 3px;
 	font-size: 14px;
+	font-family: "Ubuntu Mono", monospace;
 }
 
 pre {
 	line-height: 1.4;
 	overflow-x: auto;
-	padding: 1em;
+	text-wrap: wrap;
+	margin: 0;
 }
 
 .highlight pre ::selection {
@@ -128,7 +130,7 @@ pre {
 pre code {
 	background-color: transparent;
 	color: inherit;
-	font-size: 100%;
+	font-size: 15px;
 	padding: 0;
 }
 
@@ -344,7 +346,7 @@ table td {
 .before-code {
 	display: flex;
 	margin: 0;
-	background-color: #35372f;
+	background-color: #383937;
 	width: 100%;
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
@@ -383,12 +385,12 @@ img.sh-icon {
 }
 
 .code {
-	padding: 15px;
 	margin: 0;
 	border-bottom-left-radius: 8px;
 	border-bottom-right-radius: 8px;
 	font-size: 14px;
 	text-wrap: wrap;
+	padding: 15px;
 }
 
 .codeblock {
@@ -398,4 +400,12 @@ img.sh-icon {
 .before-code button:hover {
 	cursor: pointer;
 	background-color: #505348;
+}
+
+code>span>a {
+	border: 0;
+}
+
+code>span>a:hover {
+	padding: 0;
 }
