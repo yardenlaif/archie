@@ -45,7 +45,36 @@
 			{{- end -}}
 		</article>
 		{{ else if eq .Type "talks" }}
-		{{ .Params.slides }}
+		<article>
+			<div class="title">
+				<h1 class="title">{{ .Title }}</h1>
+				<div class="meta">{{ dateFormat "Jan 2, 2006" .Date }} @ {{ .Params.conference }}
+					<div class="post-tags">
+						{{ if ne .Type "page" }}
+						{{ if gt .Params.tags 0 }}
+						<nav class="nav tags">
+							<ul class="tags">
+								{{ range .Params.tags }}
+								<li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
+								{{ end }}
+							</ul>
+						</nav>
+						{{ end }}
+						{{ end }}
+					</div>
+					{{ if .Draft }}<span class="draft-label">DRAFT</span>{{ end }}
+				</div>
+			</div>
+			<section class="body">
+				{{ .Content }}
+
+				{{ if .Params.video }}
+				<a href="{{ .Params.video }}" target="_blank" class="talk-link btn">Video</a>
+				{{ end }}
+				{{ if .Params.slides }}
+				<a href="{{ .Params.slides }}" target="_blank" class="talk-link btn">Slides</a>
+				{{ end }}
+			</section>
 		{{ end }}
 </main>
 {{ end }}

@@ -3,6 +3,8 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+	<script type="text/javascript" src="/js/carousel.js"></script>
+	<link rel="stylesheet" href="/css/carousel.css">
 	{{ partial "header.html" . }}
 	<body>
 		<div class="content">
@@ -14,9 +16,19 @@
 				{{ range $paginator.Pages }}
 				<section class="list-item">
 					<h1 class="title"><a href="{{ .RelPermalink }}">{{.Title}}</a></h1>
-					<time>{{ dateFormat "Jan 2, 2006" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</time>
+					<time>{{ dateFormat "Jan 2, 2006" .Date }}{{ if eq .Type "talks" }} @ {{ .Params.conference }}{{ end }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</time>
 					<br>{{ template "partials/pagedescription.html" . }}
+					{{ if eq .Type "posts" }}
 					<a class="readmore" href="{{ .RelPermalink }}">Read more ⟶</a>
+					{{ else if eq .Type "talks" }}
+					{{ if isset .Params "video" }}
+					<a class="readmore" href="{{ .Params.video }}">Video</a>
+					{{ end }}
+					{{ if isset .Params "slides" }}
+					<a class="readmore" href="{{ .Params.slides }}">Slides</a>
+					{{ end }}
+					<a class="readmore" href="{{ .RelPermalink }}">Talk details ⟶</a>
+					{{ end }}
 				</section>
 				{{ end }}
 				{{ template "partials/paginator.html" . }}

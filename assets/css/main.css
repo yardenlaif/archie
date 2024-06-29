@@ -66,6 +66,11 @@ ul li {
 	text-indent: -2ch;
 }
 
+.pagination {
+	padding: 0;
+	width: 100%;
+}
+
 ul>li::before {
 	content: '* ';
 	color: var(--maincolor);
@@ -231,11 +236,6 @@ footer {
 }
 
 /* Common */
-.title h1 {
-	margin-bottom: 0;
-	font-size: 22px;
-}
-
 h2 {
 	font-size: 16px;
 }
@@ -251,8 +251,15 @@ time {
 /* Posts */
 article .title {
 	margin-bottom: 1em;
+
+	h1 {
+		font-size: 22px;
+	}
 }
 
+h1.title {
+	margin-bottom: 5px;
+}
 
 /* Callout */
 .callout {
@@ -411,4 +418,9 @@ code>span>a {
 
 code>span>a:hover {
 	padding: 0;
+}
+
+.talk-link {
+	margin-right: 5px;
+	padding-top: 10px;
 }
