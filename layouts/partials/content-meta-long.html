@@ -1,0 +1,12 @@
+<div class="meta">Posted on {{ dateFormat "Jan 2, 2006" .Date }}{{ if isset .Params "conference" }} @ {{ .Params.conference }}{{ end }}
+	{{ if ne .Type "page" }}
+	{{ if gt .Params.tags 0 }}
+	<div class="tags tags-icon">
+		{{ range collections.Sort .Params.tags "value" "asc" }}
+		<a class="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+		{{ end }}
+	</div>
+	{{ end }}
+	{{ end }}
+	{{ if .Draft }}<span class="draft-label">DRAFT</span>{{ end }}
+</div>

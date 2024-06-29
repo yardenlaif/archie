@@ -244,7 +244,7 @@ h3 {
 	font-size: 14px;
 }
 
-time {
+.list-item>span {
 	color: grey;
 }
 
@@ -258,7 +258,12 @@ article .title {
 }
 
 h1.title {
-	margin-bottom: 5px;
+	margin-bottom: 0;
+	font-size: 1.1em;
+}
+
+h1.title a {
+	border: none;
 }
 
 /* Callout */
@@ -292,7 +297,7 @@ h1.title {
 }
 
 
-.tags li::before {
+.tags-icon::before {
 	content: "🏷 ";
 }
 
@@ -300,15 +305,6 @@ h1.title {
 	margin-top: 0;
 }
 
-.tags a {
-	border-bottom: 3px solid var(--maincolor);
-}
-
-.tags a:hover {
-	color: var(--hovercolor);
-	background-color: white;
-	padding: 0;
-}
 
 svg {
 	max-height: 15px;

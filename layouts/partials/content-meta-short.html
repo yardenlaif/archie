@@ -1,0 +1,2 @@
+<span class="meta">{{ dateFormat "Jan 2, 2006" .Date }}{{ if isset .Params "conference" }} @ {{ .Params.conference }}{{ end }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</span>
+

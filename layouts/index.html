@@ -16,7 +16,7 @@
 				{{ range $paginator.Pages }}
 				<section class="list-item">
 					<h1 class="title"><a href="{{ .RelPermalink }}">{{.Title}}</a></h1>
-					<time>{{ dateFormat "Jan 2, 2006" .Date }}{{ if eq .Type "talks" }} @ {{ .Params.conference }}{{ end }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</time>
+					{{ template "partials/content-meta-short.html" . }}
 					<br>{{ template "partials/pagedescription.html" . }}
 					{{ if eq .Type "posts" }}
 					<a class="readmore" href="{{ .RelPermalink }}">Read more ⟶</a>

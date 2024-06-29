@@ -1,5 +1,5 @@
 {{ define "main" }}
-<h1 class="page-title">All tags</h1>
+<h1 class="page-title">Tags</h1>
 
 {{ $biggest := 1 }}
 {{ $smallest := 1 }}
@@ -10,7 +10,7 @@
 {{ $data := .Data }}
 <div class="tag-cloud">
 	<ul class="tags">
-		{{ range $key, $value := .Data.Terms.ByCount }}
+		{{ range $key, $value := sort .Data.Terms.Alphabetical }}
 		{{ $size := (add (mul (div $value.Count $biggest) (sub $max $min)) $min) }}
 		{{ $size := (cond (eq $biggest $smallest) $min $size) }}
 		<li><a style="font-size: {{ $size }}rem;" href="{{ $.Site.LanguagePrefix | absURL }}{{ $data.Plural }}/{{ $value.Name | urlize }}/">{{ $value.Name }}</a></li>
