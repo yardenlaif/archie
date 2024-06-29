@@ -9,7 +9,7 @@
 	{{- range .Data.Pages -}}
 		{{- if (not (in (.Site.Params.excludedTypes | default (slice "page")) .Type)) -}}
 		<li class="post">
-			<a href="{{ .RelPermalink }}">{{.Title}}</a>{{ template "partials/content-meta-short.html" . }}</li>
+			<a href="{{ .RelPermalink }}">{{.Title}}</a> {{ template "partials/content-meta-short.html" . }}</li>
 		{{- end -}}
 	{{- end -}}
 </ul>

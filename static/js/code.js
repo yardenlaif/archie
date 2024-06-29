@@ -9,14 +9,14 @@ if (navigator.clipboard) {
 			return
 		}
 
-		let div = document.createElement('div');
+		const div = document.createElement('div');
 		div.className = "codeblock";
 
-		let header = document.createElement("div");
+		const header = document.createElement("div");
 		header.className = 'before-code';
 		div.appendChild(header);
 
-		let langIcon = document.createElement('img');
+		const langIcon = document.createElement('img');
 		switch (lang) {
 			case "go":
 				langIcon.src = "/go-logo.svg";
@@ -29,10 +29,14 @@ if (navigator.clipboard) {
 		}
 		header.appendChild(langIcon);
 
-		let button = document.createElement("button");
-		header.appendChild(button);
+		const buttonsDiv = document.createElement("div");
+		buttonsDiv.className = "buttons";
+		header.appendChild(buttonsDiv);
 
-		let img = document.createElement("img");
+		const button = document.createElement("button");
+		buttonsDiv.appendChild(button);
+
+		const img = document.createElement("img");
 		img.src = "/copy.svg";
 		button.appendChild(img);
 
@@ -40,13 +44,12 @@ if (navigator.clipboard) {
 		block.insertBefore(div, block.childNodes[0]);
 
 		button.addEventListener("click", async () => {
-			await copyCode(block, img);
+			await copyCode(code, img);
 		});
 	})
 }
 
-async function copyCode(block, img) {
-	let code = block.querySelector("code");
+async function copyCode(code, img) {
 	let text = code.innerText;
 
 	await navigator.clipboard.writeText(text);

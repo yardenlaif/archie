@@ -1,22 +1,31 @@
 /* Markdown */
 :root {
-	--maincolor: #FF7F3E;
-	--bordercl: #604CC3;
-	--calloutcolor: #80C4E9;
-	--hovercolor: --maincolor;
-	--darkMaincolor: #50fa7b;
+	--lightmaincolor: #FF7F3E;
+	--lightsecondarycolor: #80C4E9;
+	--lightthirdcolor: #604CC3;
+	--lightbackgroundcolor: white;
+	--lighttextcolor: #232333;
+	--lighthighlightcolor: #f1f1f1;
+	--darkmaincolor: #FF7F3E;
+	--darksecondarycolor: #80C4E9;
+	--darkthirdcolor: #604CC3;
+	--darkbackgroundcolor: #202124;
+	--darktextcolor: #ebe6c2;
+	--darkhighlightcolor: #414141;
 }
 
 html {
-	color: #232333;
+	color: var(--textcolor);
 	font-family: 'Roboto Mono', monospace;
 	font-size: 15px;
 	line-height: 1.6em;
 }
 
 body {
+	color: var(--textcolor);
 	display: block;
 	margin: 8px;
+	background: var(--backgroundcolor);
 }
 
 * {
@@ -35,12 +44,12 @@ p {
 
 hr {
 	border: 0;
-	border-top: 3px dotted var(--bordercl);
+	border-top: 3px dotted var(--thirdcolor);
 	margin: 1em 0;
 }
 
 blockquote {
-	border-left: 3px solid var(--bordercl);
+	border-left: 3px solid var(--thirdcolor);
 	color: #737373;
 	margin: 0;
 	padding-left: 1em;
@@ -48,12 +57,12 @@ blockquote {
 
 a {
 	border-bottom: 1px solid var(--maincolor);
-	color: inherit;
+	color: var(--textcolor);
 	text-decoration: none;
 }
 
 a:hover {
-	background-color: var(--hovercolor);
+	background-color: inherit;
 	font-weight: bold;
 }
 
@@ -112,7 +121,7 @@ figure h4::before {
 
 /* Code blocks */
 code {
-	background-color: #f1f1f1;
+	background-color: var(--highlightcolor);
 	padding: 3px;
 	font-size: 14px;
 	font-family: "Ubuntu Mono", monospace;
@@ -121,7 +130,6 @@ code {
 pre {
 	line-height: 1.4;
 	overflow-x: auto;
-	text-wrap: wrap;
 	margin: 0;
 }
 
@@ -131,6 +139,7 @@ pre {
 }
 
 pre code {
+	text-wrap: wrap;
 	background-color: transparent;
 	color: inherit;
 	font-size: 15px;
@@ -214,7 +223,7 @@ h6::before {
 footer {
 	display: flex;
 	align-items: center;
-	border-top: 0.4rem dotted var(--bordercl);
+	border-top: 0.4rem dotted var(--thirdcolor);
 	padding: 2rem 0rem;
 	margin-top: 2rem;
 }
@@ -268,7 +277,7 @@ h1.title a {
 
 /* Callout */
 .callout {
-	border: 1px solid var(--calloutcolor);
+	border: 1px solid var(--secondarycolor);
 	/* font-style: italic; */
 	font-size: 13px;
 	padding: 1em;
@@ -315,7 +324,7 @@ svg {
 }
 
 .draft-label {
-	color: var(--bordercl);
+	color: var(--thirdcolor);
 	text-decoration: none;
 	padding: 2px 4px;
 	border-radius: 4px;
@@ -356,6 +365,7 @@ table td {
 	width: 100%;
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
+	justify-content: space-between;
 }
 
 .before-code button {
@@ -395,7 +405,6 @@ img.sh-icon {
 	border-bottom-left-radius: 8px;
 	border-bottom-right-radius: 8px;
 	font-size: 14px;
-	text-wrap: wrap;
 	padding: 15px;
 }
 
@@ -406,6 +415,10 @@ img.sh-icon {
 .before-code button:hover {
 	cursor: pointer;
 	background-color: #505348;
+}
+
+.buttons {
+	display: flex;
 }
 
 code>span>a {
@@ -419,4 +432,10 @@ code>span>a:hover {
 .talk-link {
 	margin-right: 5px;
 	padding-top: 10px;
+}
+
+#dark-mode-toggle {
+	border: 0;
+	background: initial;
+	color: var(--maincolor);
 }
