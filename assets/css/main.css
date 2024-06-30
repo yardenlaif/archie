@@ -1,10 +1,10 @@
 /* Markdown */
 :root {
 	--lightmaincolor: #FF7F3E;
-	--lightsecondarycolor: #80C4E9;
-	--lightthirdcolor: #604CC3;
+	--lightsecondarycolor: #8ec07c;
+	--lightthirdcolor: #458588;
 	--lightbackgroundcolor: white;
-	--lighttextcolor: #232333;
+	--lighttextcolor: #3c3836;
 	--lighthighlightcolor: #f1f1f1;
 	--darkmaincolor: #FF7F3E;
 	--darksecondarycolor: #80C4E9;
@@ -44,7 +44,7 @@ p {
 
 hr {
 	border: 0;
-	border-top: 3px dotted var(--thirdcolor);
+	border-top: 1px solid var(--secondarycolor);
 	margin: 1em 0;
 }
 
@@ -176,8 +176,8 @@ h3,
 h4,
 h5,
 h6 {
+	margin-block-start: 0;
 	font-size: 1.2rem;
-	margin-top: 2em;
 }
 
 .title::before {
@@ -217,6 +217,7 @@ h6::before {
 .meta {
 	color: #999;
 	letter-spacing: -0.5px;
+	margin-bottom: 1.5em;
 }
 
 /* Footer */
@@ -291,6 +292,7 @@ h1.title a {
 
 .site-description {
 	display: flex;
+	margin-bottom: 2em;
 }
 
 .site-description p {
