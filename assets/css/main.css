@@ -44,7 +44,7 @@ p {
 
 hr {
 	border: 0;
-	border-top: 1px solid var(--secondarycolor);
+	border-top: 2px solid var(--secondarycolor);
 	margin: 1em 0;
 }
 
